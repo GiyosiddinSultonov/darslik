@@ -82,7 +82,7 @@ public class ProductDAO {
         var avg = jdbcTemplate.queryForObject(sql, Double.class, Date.valueOf(date));
         return avg;
     }
-    public Double getOrderSum(LocalDate date){
+    public Double getOrderSum(LocalDate date){   /**   nimadir  */
         String sql = "select sum(PRICE) from (select sum(p.PRICE) price from PRODUCT_ORDER o\n" +
                 "join ORDER_PRODUCT_RELATIONSHIP op on o.ID = op.ORDER_ID\n" +
                 "join PRODUCT p on p.ID = op.PRODUCT_ID\n" +
