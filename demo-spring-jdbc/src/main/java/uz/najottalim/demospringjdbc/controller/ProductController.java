@@ -49,4 +49,12 @@ public class ProductController {
         log.info("getAvgAtGivenDate: {}", ans);
         return ans;
     }
+    @GetMapping("/order/all-sum/{date}")
+    public Double getSumAtGivenDate(@PathVariable @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate date) {
+        log.info("date: {}", date);
+        Double sum = productDAO.getOrderSum(date);
+        log.info("getSumAtGivenDate: {}", sum);
+        return sum;
+    }
+
 }
